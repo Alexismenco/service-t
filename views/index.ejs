@@ -1,0 +1,207 @@
+<%- include ("./partials/cabecera") %> 
+<%- include ("./partials/navbar") %> 
+
+<div class="portada">
+  <div class="content">
+    <h1 style=" font-size: 20px; font-weight: 600;">Llevamos la excelencia a tu hogar, Tu espacio merece el mejor cuidado.</h1>
+    <h2 class="mt-3 p-5" style="color: #00C2CB; font-size: 30px; font-weight: 600; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">ASEO A DOMICILIO</h2>
+    
+    <h3 class="mt-4">Un Servicio Profesional a tu alcance, valores desde $29.900</h3>
+    <p class="mt-3 p-5">Descubre nuestra variedad de servicios de aseo a domicilio, 
+      conoce nuestros planes mensuales y el resto de nuestros servicios para mantener siempre #TuCasaPremium.</p>
+  </div>
+</div>
+
+<div class="card-group mt-3">
+  <div class="card m-4">
+    <div class="card-img-container">
+      <img src="/img/banner1.png" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <div class="card-body">
+          <h5 class="card-title banner-tittle mt-5">Todo Servicio incluye aspirado profesional y limpieza a vapor.</h5>
+          <p class="card-text banner-text">Hogar y Oficina</p>
+          <a href="" class="banner-link">AGENDAR AHORA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card m-3">
+    <div class="card-img-container">
+      <img src="/img/banner2.png" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <div class="card-body">
+          <h5 class="card-title banner-tittle mt-5">Limpieza en 3 etapas, aspirado, vapor y extracción.</h5>
+          <p class="card-text banner-text">Limpieza de Tapices</p>
+          <a href="" class="banner-link">VER SERVICIOS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card m-3">
+    <div class="card-img-container">
+      <img src="/img/banner3.png" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <div class="card-body">
+          <h5 class="card-title banner-tittle mt-5">Ahorra mas de un 10% adquiriendo tu Plan Mensual</h5>
+          <p class="card-text banner-text">Planes Mensuales</p>
+          <a href="" class="banner-link">VER PLANES</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="text-center p-5">
+  <h1 style="color: black; font-weight: 600;">
+    Nuestros servicios de Aseo a domicilio, Limpieza Hogar, Limpieza Oficinas. 
+    Todos nuestros Servicios incluyen limpieza a vapor con maquinaria industrial.
+  </h1>
+</div>
+
+<div id="limpieza1">
+  <h3 class="text-primary" style="margin-left: 20px;">Limpieza Hogar u Oficina hasta 40 Metros Cuadrados</h3>
+</div>
+<%- include ("./partials/aseo-40") %> 
+
+<div class="mt-5" id="limpieza2">
+  <h3 class="text-primary" style="margin-left: 20px;">Limpieza Hogar u Oficina hasta 70 Metros Cuadrados</h3>
+</div>
+<%- include ("./partials/aseo-70") %> 
+
+<div class="mt-5" id="limpieza3">
+  <h3 class="text-primary" style="margin-left: 20px;">Limpieza Hogar u Oficina hasta 100 Metros Cuadrados</h3>
+</div>
+<%- include ("./partials/aseo-100") %> 
+
+<%- include ("./partials/footer") %> 
+<%- include ("./partials/pie") %> 
+
+<style>
+  .portada {
+    background-image: url('./img/principal.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+  /* Banner */
+  .card-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-body {
+    border: 0px solid rgba(246, 244, 244, 0.3);
+    padding: 10px;
+    color: white;
+    text-align: center;
+  }
+
+  .banner-tittle {
+    color: rgba(223, 212, 212, 0.5);
+    font-size: 17px;
+  }
+  .banner-text{
+    font-size: 40px;
+    padding: 20px;
+    font-weight: 600;
+  }
+
+  .banner-link {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);;
+}
+
+.card-img-top {
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.2); /* Aumenta levemente el tamaño de la imagen */
+}
+
+
+.banner-link:hover{
+  color: white;
+}
+
+.banner-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; /* Ajusta la distancia de la línea */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.3); /* Color con opacidad */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.banner-link:hover::after {
+  transform: scaleX(1);
+  background-color: white; /* Cambia el color al pasar el mouse */
+  color: white;
+}
+
+/* Card parte 2 */
+.am-category-service-color {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; /* Ajusta el tamaño del círculo */
+  height: 50px; /* Igual al width para crear un círculo */
+  border-radius: 50%; /* Hace que el elemento sea un círculo */
+  text-align: center;
+  margin-top: -25px;
+  margin-left: 20px;
+}
+
+.card2:hover{
+  background-color: rgba(79, 157, 225);
+}
+
+.caracteristicas {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 100;
+  overflow-y: scroll;
+}
+
+.card-header > img{
+  max-width: 100%;
+}
+</style>

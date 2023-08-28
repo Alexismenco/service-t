@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularios de Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    .payment-form {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px;
+    }
+
+    .payment-form h2 {
+      margin-bottom: 10px;
+    }
+
+    .payment-form label {
+      display: block;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .payment-form strong {
+      display: block;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .payment-form input[type="text"],
+    .payment-form input[type="checkbox"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .payment-form button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: auto;
+    }
+
+    .payment-form button:hover {
+      background-color: #0056b3;
+    }
+
+    .terminos {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+    }
+
+    ul {
+      list-style-type: decimal;
+      padding-left: 20px;
+    }
+
+    .payment-details {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card payment-form">
+              <div class="card-body" style="display: flex; justify-content: center;">
+                <form action="<%= url %>" method="post">
+                    <img src="./img/webpay2.png" alt="">
+                  <input type="text" name="token_ws" value="<%= token %>" hidden>
+      
+                  <label>
+                    <input type="checkbox" name="terminos1" required>
+                    He leído y estoy de acuerdo con los
+                  </label>
+                    <strong id="terminos1Link" style="cursor: pointer; text-decoration: underline;">términos y condiciones</strong>
+      
+                  <div class="terminos" id="terminos1Div">
+                        <h2>Términos y Condiciones de Servicio</h2>
+                        <ul>
+                          <li>Servicio: La empresa de limpieza ofrecerá servicios de limpieza a domicilio según los requerimientos y especificaciones establecidos en el Plan Contratado.</li>
+                          <li>Personal: La empresa pondrá a disposición personal debidamente capacitado y cualificado para realizar los servicios de limpieza.</li>
+                          <li>Respeto a la propiedad: Se espera que los empleados de la empresa de limpieza traten la propiedad del cliente con respeto y cuidado durante la ejecución del servicio.</li>
+                          <li>Confidencialidad: La empresa de limpieza se compromete a mantener la confidencialidad de cualquier información sensible o confidencial a la que tengan acceso durante la prestación del servicio.</li>
+                          <li>Responsabilidad: La empresa de limpieza no se hace responsable de cualquier daño o pérdida ocasionada por el mal uso o negligencia por parte del cliente.</li>
+                          <li>Precio y pago: Los precios de los servicios de limpieza están establecidos en cada Plan, el cual se rige por los metros cuadrados de la propiedad. Si nuestro especialista en limpieza detecta una diferencia considerable en los metros cuadrados, será informado al cliente para hacer el reajuste del precio cancelado.</li>
+                          <li>Cancelaciones y modificaciones: El cliente deberá notificar cualquier cancelación o modificación en la programación del servicio al menos con 24 horas de antelación. En caso de no cumplir con el plazo establecido, se podrá aplicar un cargo adicional.</li>
+                          <li>Proporcionar suministros: El cliente deberá proporcionar los suministros necesarios para la ejecución del servicio de limpieza, a menos que se acuerde lo contrario. En el caso de no contar con productos de limpieza, nuestro especialista cuenta con un Kit Básico de Limpieza, el cual no es el ideal para Limpieza Plus o Premium.</li>
+                          <li>Resolución de conflictos: Cualquier conflicto o disputa entre el cliente y la empresa de limpieza se intentará resolver de manera amistosa y, en caso de no ser posible, se someterá a las leyes y regulaciones correspondientes.</li>
+                        </ul>
+                    
+                        <p>Al utilizar nuestros servicios, usted acepta y se compromete a cumplir con los términos y condiciones aquí establecidos. Si tiene alguna pregunta o inquietud, no dude en ponerse en contacto con nosotros.</p>
+                    </div>
+                    <p></p>
+                  <button class="btn btn-primary" style="display: flex; justify-content: center;" type="submit">Finalizar Compra</button>
+                </form>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-sm-6">
+            <div class="card payment-form">
+              <div class="card-body">
+                <form action="/td" method="post">
+                    <div class="payment-details">
+                        <h2>Pago por Transferencia </h2>
+                        <h3><strong>Número de orden:  <%= buyOrder.slice(2) %></strong></h3>
+                        <p>Realiza tu pago directamente en nuestra cuenta bancaria. Por favor, usa el número del pedido como referencia de pago. Tu pedido no se procesará hasta que se haya recibido el importe en nuestra cuenta.</p>
+                        <p><strong>Nombre Titular:</strong> Alexis Menco</p>
+                        <p><strong>Cuenta corriente Banco Santander</strong></p>
+                        <p><strong>Numero de cuenta:</strong> 79731560</p>
+                        <p><strong>Correo:</strong> mencoalexis@gmail.com</p>
+                      </div>
+                  <label>
+                    <input type="checkbox" name="terminos1" required>
+                    He leído y estoy de acuerdo con los 
+                  </label>
+                    <strong id="terminos1Link2" style="cursor: pointer; text-decoration: underline;">términos y condiciones</strong>
+      
+                  <div class="terminos" id="terminos1Div2">
+                    <h2>Términos y Condiciones de Servicio</h2>
+                    <ul>
+                      <li>Servicio: La empresa de limpieza ofrecerá servicios de limpieza a domicilio según los requerimientos y especificaciones establecidos en el Plan Contratado.</li>
+                      <li>Personal: La empresa pondrá a disposición personal debidamente capacitado y cualificado para realizar los servicios de limpieza.</li>
+                      <li>Respeto a la propiedad: Se espera que los empleados de la empresa de limpieza traten la propiedad del cliente con respeto y cuidado durante la ejecución del servicio.</li>
+                      <li>Confidencialidad: La empresa de limpieza se compromete a mantener la confidencialidad de cualquier información sensible o confidencial a la que tengan acceso durante la prestación del servicio.</li>
+                      <li>Responsabilidad: La empresa de limpieza no se hace responsable de cualquier daño o pérdida ocasionada por el mal uso o negligencia por parte del cliente.</li>
+                      <li>Precio y pago: Los precios de los servicios de limpieza están establecidos en cada Plan, el cual se rige por los metros cuadrados de la propiedad. Si nuestro especialista en limpieza detecta una diferencia considerable en los metros cuadrados, será informado al cliente para hacer el reajuste del precio cancelado.</li>
+                      <li>Cancelaciones y modificaciones: El cliente deberá notificar cualquier cancelación o modificación en la programación del servicio al menos con 24 horas de antelación. En caso de no cumplir con el plazo establecido, se podrá aplicar un cargo adicional.</li>
+                      <li>Proporcionar suministros: El cliente deberá proporcionar los suministros necesarios para la ejecución del servicio de limpieza, a menos que se acuerde lo contrario. En el caso de no contar con productos de limpieza, nuestro especialista cuenta con un Kit Básico de Limpieza, el cual no es el ideal para Limpieza Plus o Premium.</li>
+                      <li>Resolución de conflictos: Cualquier conflicto o disputa entre el cliente y la empresa de limpieza se intentará resolver de manera amistosa y, en caso de no ser posible, se someterá a las leyes y regulaciones correspondientes.</li>
+                    </ul>
+                
+                    <p>Al utilizar nuestros servicios, usted acepta y se compromete a cumplir con los términos y condiciones aquí establecidos. Si tiene alguna pregunta o inquietud, no dude en ponerse en contacto con nosotros.</p>
+                  </div>
+      
+                  <button class="btn btn-primary" style="display: flex; justify-content: center;" type="submit">Finalizar Compra</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
+      <script>
+        const terminos1Link = document.getElementById('terminos1Link');
+        const terminos1Div = document.getElementById('terminos1Div');
+        const terminos1Link2 = document.getElementById('terminos1Link2');
+        const terminos1Div2 = document.getElementById('terminos1Div2');
+      
+        terminos1Link.addEventListener('click', () => {
+            terminos1Div.style.display = terminos1Div.style.display === 'block' ? 'none' : 'block';
+        });
+
+        terminos1Link2.addEventListener('click', () => {
+            terminos1Div2.style.display = terminos1Div2.style.display === 'block' ? 'none' : 'block';
+        });
+      </script>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamiento de Servicio de Aseo</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Agendamiento de Servicio</h1>
+
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="./img/<%= servicioImg %>" style="width: 100%; border-radius: 20px;" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Detalle del servicio</h5>
+                  <p class="card-text">El servicio corresponde al servicio <%= area %> para tamaños de hasta <%= tamano %> metros cuadrados</p>
+                  <p class="card-text"><small class="text-body-secondary">Precio $<%= servicioPrecio %></small></p>
+                  <div class="mb-5" style="display: flex; justify-content: center; align-items: center; height: max-content;">
+                    <img src="./img/sello.png" style="width: 150px; border: 3px solid gold; border-radius: 50%;" alt="Imagen centrada">
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <form id="appointment-form" action="/pagar" method="post">
+
+            <label for="delivery-zone">Nombre <span>*</span></label>
+            <input type="text" id="delivery-zone" name="nombre" required>
+
+            <label for="delivery-zone">Apellidos <span>*</span></label>
+            <input type="text" id="delivery-zone" name="apellidos" required>
+
+            <label for="email">Dirección de correo electrónico <span>*</span></label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Teléfono <span>*</span></label>
+            <input placeholder="9 87654321" type="number" id="phone" name="phone" required>
+
+            <label for="street">Dirección Completa (Incluya calle, numero, depto/oficina, comuna) <span>*</span></label>
+            <input type="text" id="street" name="street" required>
+          
+            <label for="order-notes">Notas del pedido (opcional)</label>
+            <textarea id="order-notes" name="order" rows="4"></textarea>
+
+            <input type="number" value="<%= servicioPrecio %>" name="precio" style="display: none;">
+            <input type="text" value="<%= area %>" name="tipo" style="display: none;">
+            <input type="number" value="<%= tamano %>" name="tamano" style="display: none;">
+
+            <button type="submit">Agendar Servicio</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<style>
+    span{
+        color: rgb(237, 28, 28);
+        font-size: 25px;
+    }
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    }
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+    }
+}
+
+</style>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .success {
+      color: #34c635;
+    }
+
+    .error {
+      color: #ff3f34;
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: auto;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <% if (compra) { %>
+      <h2 class="success"><%- step %></h2>
+      <p>Tu transacción se ha completado con éxito.</p>
+      <img src="/img/success.png" alt="Transacción Exitosa">
+      <p>Hemos enviado a tu correo electronico el detalle de tu compra.</p>
+        <a class="btn" href="/">Ir al inicio</a>
+      <% } else { %>
+      <h2 class="error"><%- step %></h2>
+      <p>Algo salió mal en el proceso de pago.</p>
+      <img src="/img/error.png" style="width: 50px;" alt="Error en el Pago"><br><br>
+      <a class="btn" href="/">Ir al inicio</a>
+    <% } %>
+  </div>
+</body>
+</html>
